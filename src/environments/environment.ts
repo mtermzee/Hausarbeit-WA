@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  
+  // 2. Add your credentials from step 1
+  firebaseConfig: {
+  apiKey: "AIzaSyBcI-hhISMm7Vxv4WpS55FjAqHAv-mYSrM",
+  authDomain: "hausarbeit-wa.firebaseapp.com",
+  projectId: "hausarbeit-wa",
+  storageBucket: "hausarbeit-wa.appspot.com",
+  messagingSenderId: "619618195607",
+  appId: "1:619618195607:web:16ca48820b1806cc0031d2"
+  }
 };
 
 /*
