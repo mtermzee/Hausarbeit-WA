@@ -5,12 +5,16 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },  {
+    path: 'splash-screen',
+    loadChildren: () => import('./splash-screen/splash-screen.module').then( m => m.SplashScreenPageModule)
   },
-  {
+
+  /*{
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },
+  },*/
 ];
 
 @NgModule({

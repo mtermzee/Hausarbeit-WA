@@ -1,0 +1,137 @@
+// import animsta
+
+// Logo Move
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1
+  }
+}
+
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1
+  }
+}
+
+// Title Move
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -.5em;
+    opacity: 0
+  }
+
+  40% {
+    opacity: .6
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -.5em;
+    opacity: 0
+  }
+
+  40% {
+    opacity: .6
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+/* Flickering animation */
+@keyframes flicker {
+
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+
+    text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 30px #0fa;
+  }
+
+  20%,
+  24%,
+  55% {
+    text-shadow: none;
+  }
+}
+
+// font family
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, rgb(8, 18, 29), rgb(22, 16, 51));
+    font-family: 'Kalam', cursive;
+    
+    .main-div{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+
+        .imgAnimate {
+            -webkit-animation: scale-in-center 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+             animation: scale-in-center 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        
+            img {
+                height: 400px;
+            }
+        }
+
+        .txtAnimate {
+          -webkit-animation: tracking-in-expand 2s cubic-bezier(.215, .61, .355, 1.000) both;
+          animation: tracking-in-expand 2s cubic-bezier(.215, .61, .355, 1.000) both;
+
+           margin-top: -120px;
+
+          .neonText {
+            color: #fff;
+            text-shadow:
+              0 0 7px #fff,
+              0 0 10px #fff,
+              0 0 21px #fff,
+              0 0 50px #0fa;
+          }
+
+          h1 {
+            font-size: 1.5rem;
+            animation: flicker 1s infinite alternate;
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+
+        }
+    }
+}
+
