@@ -1,0 +1,139 @@
+$primary: #7754f6;
+$black: #000;
+$white: #fff;
+$body_color: #818181;
+$light: #d1d1d1;
+
+
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1
+  }
+}
+
+
+.body {
+  color: $body_color;
+  font-size: 16px;
+  width: 100%;
+
+  .bg-img {
+    -webkit-animation:slide-in-right 1s cubic-bezier(.25, .46, .45, .94) both;
+    animation:slide-in-right 1s cubic-bezier(.25, .46, .45, .94) both;
+
+    img {
+      width: 500px;
+    }
+  }
+
+  .form-warp {
+    background: $white;
+
+    .form-inner {
+      a {
+        transition: .3s all ease;
+        color: $primary;
+        font-weight: 500;
+        text-decoration: none;
+
+        &:hover {
+          color: darken($primary, 5%);
+        }
+      }
+
+      .title {
+        font-size: 40px;
+        color: $black;
+      }
+
+      form {
+        .form-floating {
+          position: relative;
+          margin-bottom: 15px;
+
+          .form-control {
+            height: 60px !important;
+            border-radius: 10px !important;
+
+            &:active,
+            &:focus {
+              outline: none;
+              box-shadow: none;
+              border-color: $primary;
+            }
+          }
+
+          .password-show-toggle {
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            z-index: 9;
+
+            img {
+              width: 25px;
+            }
+          }
+        }
+      }
+
+      .form-check {
+        margin-bottom: 30px;
+
+        .form-check-input {
+          border-color: $light !important;
+
+          &:checked {
+            background-color: $primary;
+            border-color: $primary !important;
+            outline: none;
+            box-shadow: none;
+          }
+
+          &:focus,
+          &:active {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+
+      .btn-primary {
+        border-radius: 10px;
+        background-color: $primary;
+        border-color: $primary;
+        height: 60px;
+        font-weight: 500;
+        box-shadow: 0 15px 30px -7px rgba($primary, .5);
+        transition: .3s all ease;
+
+        &:hover {
+          background-color: darken($primary, 5%);
+          border-color: darken($primary, 5%);
+        }
+      }
+    }
+  }
+}

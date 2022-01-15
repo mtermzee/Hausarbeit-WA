@@ -7,6 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/environments/environment';
+import { FormsModule } from '@angular/forms';
 
 // 1. Import the libs you need
 import { AngularFireModule } from "@angular/fire/compat";
@@ -17,11 +18,12 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+    BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule,
     // 3. Initialize
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
