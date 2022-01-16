@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
     this.pass = 'password';
     this.authService.eventAuthError$.subscribe(data =>{
       this.authError = data;
-    })
+    });
   }
 
   toggleShow() {

@@ -44,6 +44,7 @@ export class SignupPage implements OnInit {
       this.authService.createUser(form.value);
     }
 
+    // check if box is checked
     toggleEditable(event){
       this.editable = false;
       if ( event.target.checked ) {

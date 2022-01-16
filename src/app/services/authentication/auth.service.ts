@@ -58,9 +58,11 @@ export class AuthService {
   // log in into session
   login(email: string, password: string){
     this.firebaseAuth.signInWithEmailAndPassword(email, password)
+      // handle errors
       .catch(error => {
         this.eventAuthError.next(error);
       })
+      // success, show some message
       .then(userCredential => {
         if(userCredential){
           this.router.navigate(['/home']);
@@ -71,5 +73,20 @@ export class AuthService {
   // log out of session
   logout(){
     return this.firebaseAuth.signOut();
+  }
+
+  // to reset Password by Email
+  RestPassword(email: string){
+    this.firebaseAuth.sendPasswordResetEmail(email)
+      .then(
+        () => {
+          // success, show some message
+          this.router.navigate(['/login']);
+        },
+        err => {
+          // handle errors
+           this.eventAuthError.next(err);
+        }
+    );
   }
 }
