@@ -9,6 +9,7 @@ import { AuthService } from '../services/authentication/auth.service';
 })
 export class ForgotPasswordPage implements OnInit {
   authError: any;
+   loading: boolean;
 
   constructor(private authService: AuthService) { }
 
@@ -20,6 +21,7 @@ export class ForgotPasswordPage implements OnInit {
 
   onSumbit(form){
     console.log(form.value.email);
+    this.loading = true;
     this.authService.RestPassword(form.value.email);
   }
 }

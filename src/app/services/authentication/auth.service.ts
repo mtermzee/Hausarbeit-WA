@@ -3,7 +3,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from "firebase/compat/app";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { async, BehaviorSubject } from 'rxjs';
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthService {
 
   newUser: any;
 
-  constructor(private firebaseAuth: AngularFireAuth, private db: AngularFirestore, private router: Router) { }
+  constructor(private firebaseAuth: AngularFireAuth, private db: AngularFirestore, private router: Router, private alertCtrl: AlertController) { }
 
   createUser(user){
     this.firebaseAuth.createUserWithEmailAndPassword(user.email, user.password)
@@ -79,9 +80,15 @@ export class AuthService {
   RestPassword(email: string){
     this.firebaseAuth.sendPasswordResetEmail(email)
       .then(
-        () => {
+       async () => {
           // success, show some message
-          this.router.navigate(['/login']);
+          const alert = await this.alertCtrl.create({
+            message: 'Check your email to rest password',
+            buttons:[{text: 'ok', role: 'cancel', handler: ()=>{
+              this.router.navigate(['/login']);
+            },},],
+          });
+          await alert.present();
         },
         err => {
           // handle errors
