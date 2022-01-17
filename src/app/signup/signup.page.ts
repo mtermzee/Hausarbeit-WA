@@ -11,7 +11,7 @@ import { AuthService } from '../services/authentication/auth.service';
 
 
 export class SignupPage implements OnInit {
-  pass;
+  type;
   showPassword = false;
   loading: boolean;
   editable: boolean;
@@ -21,7 +21,7 @@ export class SignupPage implements OnInit {
   constructor(private router:Router, private authService: AuthService) { }
 
   ngOnInit() {
-    this.pass = 'password';
+    this.type = 'password';
     this.authService.eventAuthError$.subscribe(data =>{
       this.authError = data;
     })
@@ -29,11 +29,11 @@ export class SignupPage implements OnInit {
 
   // show or hide Password
   toggleShow() {
-      if (this.pass === 'password') {
-        this.pass = 'text';
+      if (this.type === 'password') {
+        this.type = 'text';
         this.showPassword = true;
       } else {
-        this.pass = 'password';
+        this.type = 'password';
         this.showPassword = false;
       }
     }

@@ -12,25 +12,25 @@ import { AuthService } from '../services/authentication/auth.service';
 
 
 export class LoginPage implements OnInit {
-  pass;
+  type;
   showPassword = false
   authError: any;
 
   constructor(private router:Router, private authService: AuthService) { }
 
   ngOnInit() {
-    this.pass = 'password';
+    this.type = 'password';
     this.authService.eventAuthError$.subscribe(data =>{
       this.authError = data;
     });
   }
 
   toggleShow() {
-      if (this.pass === 'password') {
-        this.pass= 'text';
+      if (this.type === 'password') {
+        this.type= 'text';
         this.showPassword = true;
       } else {
-        this.pass = 'password';
+        this.type = 'password';
         this.showPassword = false;
       }
     }
