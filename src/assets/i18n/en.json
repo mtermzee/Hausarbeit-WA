@@ -1,0 +1,44 @@
+{
+    "SIGNIN": {
+        "title": "Sign in",
+        "subTitle": "Login",
+        "caption": "Please enter your login details to sign in.",
+        "email": "Email Address",
+        "password": "Password",
+        "rememberLogin": "Keep me logged in",
+        "ForgotPassword": "Forgot password?",
+        "submit": "Log in",
+        "unReg1": "Don't have an account?",
+        "unReg2": "Sign up"
+    },
+
+    "SIGNUP": {
+        "title": "Sign up",
+        "subTitle": "Signup",
+        "caption": "Create your account in seconds.",
+        "fullname": "Full name",
+        "email": "Email Address",
+        "password": "Password",
+        "remember1": "I agree to the",
+        "remember2": "Terms of Service",
+        "remember3": "and",
+        "remember4": "Privacy Policy",
+        "submit": "Create an account",
+        "Reg1": "Already a member?",
+        "Reg2": "Log in"
+    },
+
+    "FORGOTPASS": {
+        "title": "Reset password",
+        "subTitle": "Forgot password",
+        "caption": "Please enter your email to reset the password.",
+        "email": "Email Address",
+        "submit": "Change password",
+        "cancel1": "Still sure?",
+        "cancel2": "Cancel"
+    },
+
+    "HOME": {
+        "title": "Home"
+    }
+}

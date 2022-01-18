@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
+import { LanguageService } from './services/language/language.service';
+import { Storage } from '@ionic/storage-angular'
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,9 @@ import { Platform } from '@ionic/angular';
 export class AppComponent {
   constructor(
     private platform: Platform,
-    public router: Router
+    public router: Router,
+    private languageService: LanguageService,
+    private storage: Storage
   ) {
     this.initializeApp();
   }
@@ -19,6 +23,9 @@ export class AppComponent {
     this.platform.ready().then(() => {
       console.log('load splash screen');
       this.router.navigateByUrl('splash-screen');
-    })
+
+      this.storage.create();
+      this.languageService.setIntialAppLanguage();
+    });
   }
 }

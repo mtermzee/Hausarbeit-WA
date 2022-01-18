@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { SplashScreenPageRoutingModule } from './splash-screen-routing.module';
-
 import { SplashScreenPage } from './splash-screen.page';
 
 @NgModule({
@@ -13,7 +12,8 @@ import { SplashScreenPage } from './splash-screen.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    SplashScreenPageRoutingModule
+    SplashScreenPageRoutingModule,
+    TranslateModule
   ],
   declarations: [SplashScreenPage]
 })
