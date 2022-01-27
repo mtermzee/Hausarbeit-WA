@@ -39,6 +39,8 @@
     },
 
     "HOME": {
-         "title": "Startseite"
+        "title": "Startseite",
+        "movies": "Filme",
+        "tv": "Fernsehserie"
     }
 }

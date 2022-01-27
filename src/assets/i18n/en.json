@@ -39,6 +39,8 @@
     },
 
     "HOME": {
-        "title": "Home"
+        "title": "Home",
+        "movies": "Movies",
+        "tv": "TV series"
     }
 }

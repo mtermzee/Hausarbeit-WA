@@ -28,3 +28,74 @@
 -------------------------------------------------------------------
 */
 
+$primary: #7754f6;
+$black: #000;
+$white: #fff;
+$body_color: #818181;
+$light: #d1d1d1;
+
+.slides {
+  margin-top: 10px;
+
+  img {
+    border-radius: 10px;
+    box-shadow: -1px 11px 13px -6px rgb(87, 86, 86);
+  }
+
+  .title {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    padding: 10px;
+    text-shadow: 1px 1px 2px grey;
+  }
+}
+
+ion-slide {
+  padding-bottom: 20px;
+}
+
+.category {
+  margin-top: 15px;
+  background-color: $primary;
+  padding: 5px 25px 5px 25px;
+  border-radius: 10px;
+  box-shadow: -1px 11px 13px -6px $primary;
+  height: 40px;
+
+  p{
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+}
+
+.subTitle {
+  color: $black;
+  font-weight: bold;
+}
+
+.listSlides {
+
+  img {
+    border-radius: 10px;
+    min-height: 180px;
+    max-height: 200px;
+    box-shadow: -1px 11px 13px -6px rgb(87, 86, 86);
+  }
+}
+
+.listSlides_Pepole{
+
+  .avatar{
+    
+    ion-avatar img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+  
+}
