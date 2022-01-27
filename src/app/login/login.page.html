@@ -1,20 +1,20 @@
-<ion-header>
+<!--<ion-header>
   <ion-toolbar>
     <ion-title>{{ 'SIGNIN.title' | translate }}</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header>-->
 
 <ion-content>
   <div class="container-fluid body">
-    <div class="m-4">
+    <div class="m-2">
 
-      <div class="bg-img text-center"><img src="/assets/icon/profile_pic.png"></div>
+      <div class="bg-img text-center my-2"><img src="/assets/icon/profile_pic.png"></div>
 
       <div class="form-warp my-2">
         <div class="form-inner">
           <h1 class="title">{{ 'SIGNIN.subTitle' | translate }}</h1>
-          <p class="caption mb-4">{{ 'SIGNIN.caption' | translate }}</p>
-          
+          <p class="caption mb-2">{{ 'SIGNIN.caption' | translate }}</p>
+
           <div class="authErr" *ngIf="authError">
             <div class="alert alert-danger">
               {{ authError?.message}}
@@ -23,21 +23,23 @@
 
           <form class="pt-3" #userLogForm="ngForm" (ngSubmit)="login(userLogForm)">
             <div class="form-floating">
-              <input ngModel #email="ngModel" name="email" type="email" class="form-control" id="email" placeholder="info@xample.com">
-              <label for="email">{{ 'SIGNIN.email' | translate }}</label>
+              <input ngModel #email="ngModel" name="email" type="email" class="form-control" id="email"
+                placeholder="info@xample.com">
+              <label class="label" for="email">{{ 'SIGNIN.email' | translate }}</label>
             </div>
 
             <div class="form-floating">
               <span class="password-show-toggle">
                 <a class="type-toggle" (click)="toggleShow()">
-                <ion-icon class="show-option" [hidden]="showPassword" name="eye-outline"></ion-icon>
-                <ion-icon class="hide-option" [hidden]="!showPassword" name="eye-off-outline"></ion-icon>
+                  <ion-icon class="show-option" [hidden]="showPassword" name="eye-outline"></ion-icon>
+                  <ion-icon class="hide-option" [hidden]="!showPassword" name="eye-off-outline"></ion-icon>
                 </a>
               </span>
-              <input ngModel #password="ngModel" name="password" [type]="type" class="form-control" id="password" placeholder="Password">
-              <label for="password">{{ 'SIGNIN.password' | translate }}</label>
+              <input ngModel #password="ngModel" name="password" [type]="type" class="form-control" id="password"
+                placeholder="Password">
+              <label class="label" for="password">{{ 'SIGNIN.password' | translate }}</label>
             </div>
-          
+
             <div class="d-flex justify-content-between">
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="rememberLogin">
@@ -50,7 +52,8 @@
               <button type="submit" class="btn btn-primary">{{ 'SIGNIN.submit' | translate }}</button>
             </div>
 
-            <div class="mb-2">{{ 'SIGNIN.unReg1' | translate }}<a routerLink="/signup"> {{ 'SIGNIN.unReg2' | translate }}</a></div>
+            <div class="mb-2 caption">{{ 'SIGNIN.unReg1' | translate }}<a routerLink="/signup">
+                {{ 'SIGNIN.unReg2' | translate }}</a></div>
 
           </form>
         </div>

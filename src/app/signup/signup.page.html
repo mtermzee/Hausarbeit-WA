@@ -1,20 +1,20 @@
-<ion-header>
+<!--<ion-header>
   <ion-toolbar>
     <ion-title>{{ 'SIGNUP.title' | translate }}</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header>-->
 
 <ion-content>
   <div class="container-fluid body">
-    <div class="m-4">
+    <div class="m-2">
 
-      <div class="bg-img text-center"><img src="/assets/icon/welcome_cats.png"></div>
+      <div class="bg-img text-center my-2"><img src="/assets/icon/welcome_cats.png"></div>
 
       <div class="form-warp my-2">
         <div class="form-inner">
           <h1 class="title">{{ 'SIGNUP.subTitle' | translate }}</h1>
-          <p class="caption mb-4">{{ 'SIGNUP.caption' | translate }}</p>
-          
+          <p class="caption mb-2">{{ 'SIGNUP.caption' | translate }}</p>
+
           <div class="authErr" *ngIf="authError">
             <div class="alert alert-danger">
               {{ authError?.message}}
@@ -22,14 +22,16 @@
           </div>
 
           <form class="pt-3" #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)">
-             <div class="form-floating">
-              <input ngModel #fullname="ngModel" name="fullname" type="text" class="form-control" id="fullname" placeholder="Full Name">
-              <label for="fullname">{{ 'SIGNUP.fullname' | translate }}</label>
+            <div class="form-floating">
+              <input ngModel #fullname="ngModel" name="fullname" type="text" class="form-control" id="fullname"
+                placeholder="Full Name">
+              <label class="label" for="fullname">{{ 'SIGNUP.fullname' | translate }}</label>
             </div>
 
             <div class="form-floating">
-              <input ngModel #email="ngModel" name="email" type="email" class="form-control" id="email" placeholder="info@xample.com">
-              <label for="email">{{ 'SIGNUP.email' | translate }}</label>
+              <input ngModel #email="ngModel" name="email" type="email" class="form-control" id="email"
+                placeholder="info@xample.com">
+              <label class="label" for="email">{{ 'SIGNUP.email' | translate }}</label>
             </div>
 
             <div class="form-floating">
@@ -39,22 +41,28 @@
                   <ion-icon class="hide-option" [hidden]="!showPassword" name="eye-off-outline"></ion-icon>
                 </a>
               </span>
-              <input ngModel #password="ngModel" name="password" [type]="type" class="form-control" id="password" placeholder="Password">
-              <label for="password">{{ 'SIGNUP.password' | translate }}</label>
+              <input ngModel #password="ngModel" name="password" [type]="type" class="form-control" id="password"
+                placeholder="Password">
+              <label class="label" for="password">{{ 'SIGNUP.password' | translate }}</label>
             </div>
 
             <div class="d-flex justify-content-between">
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="remember" (change)="toggleEditable($event)">
-                <label for="remember" class="form-check-label">{{ 'SIGNUP.remember1' | translate }} <a routerLink="/signup">{{ 'SIGNUP.remember2' | translate }}</a> {{ 'SIGNUP.remember3' | translate }} <a routerLink="/signup">{{ 'SIGNUP.remember4' | translate }}</a></label>
+                <label for="remember" class="form-check-label">{{ 'SIGNUP.remember1' | translate }} <a
+                    routerLink="/signup">{{ 'SIGNUP.remember2' | translate }}</a> {{ 'SIGNUP.remember3' | translate }}
+                  <a routerLink="/signup">{{ 'SIGNUP.remember4' | translate }}</a></label>
               </div>
             </div>
 
             <div class="d-grid mb-4">
-              <button type="submit" class="btn btn-primary" *ngIf="editable">{{ 'SIGNUP.submit' | translate }} &nbsp;<ion-spinner name="bubbles" color="white" *ngIf="loading"></ion-spinner></button>
+              <button type="submit" class="btn btn-primary" *ngIf="editable">{{ 'SIGNUP.submit' | translate }} &nbsp;
+                <ion-spinner name="bubbles" color="white" *ngIf="loading"></ion-spinner></button>
             </div>
 
-            <div class="mb-2">{{ 'SIGNUP.Reg1' | translate }} <a routerLink="/login">{{ 'SIGNUP.Reg2' | translate }}</a></div>
+            <div class="mb-2 caption">{{ 'SIGNUP.Reg1' | translate }} <a
+                routerLink="/login">{{ 'SIGNUP.Reg2' | translate }}</a>
+            </div>
 
           </form>
         </div>

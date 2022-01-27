@@ -57,24 +57,31 @@ $light: #d1d1d1;
         color: $primary;
         font-weight: 500;
         text-decoration: none;
+        font-size: 0.7rem;
 
         &:hover {
           color: darken($primary, 5%);
         }
       }
 
+      .authErr {
+        font-size: 0.6rem;
+      }
       .title {
-        font-size: 40px;
+        font-size: 1.5rem;
         color: $black;
+      }
+      .caption {
+         font-size: 0.8rem;
       }
 
       form {
         .form-floating {
           position: relative;
-          margin-bottom: 15px;
+          margin-bottom: 10px;
 
           .form-control {
-            height: 60px !important;
+            height: 50px !important;
             border-radius: 10px !important;
 
             &:active,
@@ -84,12 +91,16 @@ $light: #d1d1d1;
               border-color: $primary;
             }
           }
+          
+           .label {
+             font-size: 0.8rem;
+           }
 
           .password-show-toggle {
             cursor: pointer;
             position: absolute;
             right: 20px;
-            top: 20px;
+            top: 15px;
             z-index: 9;
 
             a {
@@ -118,13 +129,17 @@ $light: #d1d1d1;
             box-shadow: none;
           }
         }
+
+         .form-check-label {
+           font-size: 0.7rem;
+         }
       }
 
       .btn-primary {
         border-radius: 10px;
         background-color: $primary;
         border-color: $primary;
-        height: 60px;
+        height: 50px;
         font-weight: 500;
         box-shadow: 0 15px 30px -7px rgba($primary, .5);
         transition: .3s all ease;
