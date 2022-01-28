@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/authentication/auth.service';
 import firebase from "firebase/compat/app";
-import { PopoverController } from '@ionic/angular';
+import { MenuController, PopoverController } from '@ionic/angular';
 import { LanguagePopoverPage } from '../popovers/language-popover/language-popover.page';
 
 @Component({
@@ -105,13 +105,19 @@ export class HomePage {
     }
   }
 
-  constructor(private router:Router, private authService: AuthService, private popoverCtrl: PopoverController) {}
+  constructor(private router:Router, private authService: AuthService, private popoverCtrl: PopoverController, private menu: MenuController) {}
 
   ngOnInit() {
     return this.authService.getUserState()
       .subscribe(user => {
-        this.user =  user;
-      })
+        this.user = user;
+      });
+  }
+
+  openSideNav() {
+    this.menu.enable(true, 'main-menu');
+    this.menu.open('main-menu');
+    console.log("menu test");
   }
 
   async openLanguagePopover(ev){
