@@ -42,5 +42,15 @@
         "title": "Startseite",
         "movies": "Filme",
         "tv": "Fernsehserie"
+    },
+
+     "Menu": {
+        "title": "Menü",
+        "movies": "Filme",
+        "tv": "Fernsehserie",
+        "favourites": "Favoriten",
+        "contact": "Kontakte",
+        "lang": "Sprachen",
+        "out": "Ausloggen"
     }
 }

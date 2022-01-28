@@ -1,0 +1,59 @@
+$primary: #7754f6;
+$secoundry: #957ee7 ;
+
+
+.menu-header-bg{
+    height: 180px;
+    width: 350px;
+    background-color: $primary;
+    background: linear-gradient(90deg, $primary 0%, #4618ec 100%);
+    box-shadow: 0px 1px 10px rgba(98, 140, 255, 0.5);
+    transform: rotate(-15deg);
+    border-radius: 10px 10px 10px 50px;
+    margin-left: -18px;
+    margin-top: -50px;
+    margin-bottom: 60px;
+}
+
+.header-content{
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+
+    img{
+        margin-right: 10px;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 7px solid $secoundry;
+    }
+
+    h2{
+        font-size: 1rem;
+        font-weight: 700;
+        color: white;
+    }
+
+    p{
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: rgb(189, 184, 184);
+    }
+}
+
+.action-button{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    ion-button{
+        text-transform: capitalize;
+        font-weight: 400;
+        --background: #7754f6;
+        --border-radius: 7px;
+        --box-shadow: none;
+    }
+    
+}

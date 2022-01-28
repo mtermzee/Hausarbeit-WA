@@ -42,5 +42,16 @@
         "title": "Home",
         "movies": "Movies",
         "tv": "TV series"
+    },
+
+     "Menu": {
+        "title": "Menu",
+        "movies": "Movies",
+        "tv": "TV series",
+        "favourites": "Favourites",
+        "contact": "Contacts",
+        "lang": "Languages",
+        "out": "Logout"
     }
+
 }
