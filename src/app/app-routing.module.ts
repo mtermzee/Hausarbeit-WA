@@ -12,19 +12,27 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./account/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'signup',
-    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+    loadChildren: () => import('./account/signup/signup.module').then( m => m.SignupPageModule)
   },
   {
     path: 'forgot-password',
-    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+    loadChildren: () => import('./account/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
   {
     path: 'language-popover',
     loadChildren: () => import('./popovers/language-popover/language-popover.module').then( m => m.LanguagePopoverPageModule)
+  },
+  {
+    path: 'movies',
+    loadChildren: () => import('./show/movies/movies.module').then( m => m.MoviesPageModule)
+  },
+  {
+    path: 'series',
+    loadChildren: () => import('./show/series/series.module').then( m => m.SeriesPageModule)
   },
 
   /*{
