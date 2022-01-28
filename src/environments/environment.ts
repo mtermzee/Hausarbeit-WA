@@ -5,6 +5,10 @@
 export const environment = {
   production: false,
   
+   // Api Call
+  API_KEY : '0291bdf03f0cc96a65e251c4580f3a00',
+  BASE_URL: 'https://api.themoviedb.org/3',
+  
   // 2. Add your credentials from step 1
   firebaseConfig: {
   apiKey: "AIzaSyBcI-hhISMm7Vxv4WpS55FjAqHAv-mYSrM",
