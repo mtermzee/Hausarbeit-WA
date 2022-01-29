@@ -44,7 +44,7 @@
         "tv": "Fernsehserie"
     },
 
-     "Menu": {
+     "MENU": {
         "title": "Menü",
         "movies": "Filme",
         "tv": "Fernsehserie",
@@ -52,5 +52,13 @@
         "contact": "Kontakte",
         "lang": "Sprachen",
         "out": "Ausloggen"
+    },
+
+     "SEARCH": {
+        "title": "Suchen",
+        "type": "Suche nach",
+        "all": "Alle",
+        "movie": "Filme",
+        "tv": "Serie"
     }
 }

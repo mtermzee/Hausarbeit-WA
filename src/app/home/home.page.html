@@ -11,12 +11,8 @@
     </ion-buttons>
 
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button [routerLink]="['/search']">
         <ion-icon name="search" slot="icon-only"></ion-icon>
-      </ion-button>
-
-      <ion-button (click)="openLanguagePopover($event)">
-        <ion-icon name="ellipsis-vertical-outline" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
 
@@ -29,16 +25,20 @@
   </div>-->
 
   <div class="m-2">
-    <ion-slides class="slides" [options]="slideOpts">
-      <ion-slide *ngFor="let i of [1,2,3,4,5]">
-        <div>
-          <img src="/assets/icon/test2.png">
-          <p class="title">The Joker</p>
-        </div>
-      </ion-slide>
-    </ion-slides>
 
-    <ion-slides [options]='slideOpts2'>
+    <div class="mt-4">
+      <p class="text-center fs-3">Now playing</p>
+      <ion-slides class="slides" [options]="slideOpts">
+        <ion-slide *ngFor="let movie of sortMovies | paginate: { itemsPerPage: 10, currentPage: 1}">
+          <div button>
+            <img [src]="IMG_URL + movie.backdrop_path">
+            <p class="title">{{ movie.title }}</p>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <!-- <ion-slides [options]='slideOpts2'>
       <ion-slide>
         <div class="category">
           <p>DISCOVERY</p>
@@ -54,7 +54,7 @@
           <p>CATEGORIES</p>
         </div>
       </ion-slide>
-    </ion-slides>
+    </ion-slides> -->
 
     <ion-item lines="none">
       <p class="subTitle">{{ 'HOME.movies' | translate }}</p>
@@ -65,9 +65,9 @@
       </ion-buttons>
     </ion-item>
     <ion-slides class="listSlides" [options]='slideOpts3'>
-      <ion-slide *ngFor="let i of [1,2,3,4,5]">
+      <ion-slide *ngFor="let movie of movies">
         <div>
-          <img src="/assets/icon/test1.jpg">
+          <img [src]="IMG_URL + movie.poster_path">
         </div>
       </ion-slide>
     </ion-slides>
@@ -81,14 +81,14 @@
       </ion-buttons>
     </ion-item>
     <ion-slides class="listSlides" [options]='slideOpts3'>
-      <ion-slide *ngFor="let i of [1,2,3,4,5]">
+      <ion-slide *ngFor="let serie of series">
         <div>
-          <img src="/assets/icon/test1.jpg">
+          <img [src]="IMG_URL + serie.poster_path">
         </div>
       </ion-slide>
     </ion-slides>
 
-    <ion-item lines="none">
+    <!-- <ion-item lines="none">
       <p class="subTitle">Pepole</p>
       <ion-buttons slot="end">
         <ion-button>
@@ -104,7 +104,7 @@
           </ion-avatar>
         </div>
       </ion-slide>
-    </ion-slides>
+    </ion-slides> -->
 
   </div>
 </ion-content>

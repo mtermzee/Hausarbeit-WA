@@ -44,7 +44,7 @@
         "tv": "TV series"
     },
 
-     "Menu": {
+     "MENU": {
         "title": "Menu",
         "movies": "Movies",
         "tv": "TV series",
@@ -52,6 +52,14 @@
         "contact": "Contacts",
         "lang": "Languages",
         "out": "Logout"
+    },
+
+    "SEARCH": {
+        "title": "Search",
+        "type": "Search for",
+        "all": "All",
+        "movie": "Movies",
+        "tv": "Series"
     }
 
 }

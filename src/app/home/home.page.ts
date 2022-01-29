@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/authentication/auth.service';
 import firebase from "firebase/compat/app";
-import { MenuController, PopoverController } from '@ionic/angular';
-import { LanguagePopoverPage } from '../popovers/language-popover/language-popover.page';
+import { MenuController } from '@ionic/angular';
+import { ApiService } from '../services/imdb/api.service';
 
 @Component({
   selector: 'app-home',
@@ -105,26 +105,55 @@ export class HomePage {
     }
   }
 
-  constructor(private router:Router, private authService: AuthService, private popoverCtrl: PopoverController, private menu: MenuController) {}
+  IMG_URL = "https://image.tmdb.org/t/p/w500";
+  sortMovies: any;
+  movies: any;
+  series: any;
+
+  constructor(private router:Router, private authService: AuthService, private apiService: ApiService , private menu: MenuController) {}
 
   ngOnInit() {
+    this.loadSortMovies();
+    this.loadMovies();
+    this.loadSeries();
+
+    console.log("Test: ", this.apiService.lang);
+
     return this.authService.getUserState()
       .subscribe(user => {
         this.user = user;
       });
   }
 
+  // by best movies
+  loadSortMovies(){
+    this.apiService.getMovies("sort_by=popularity.desc").subscribe(data => {
+      this.sortMovies = data['results'];
+      console.log(this.sortMovies);
+    });
+   // this.apiService.getMovies("sort_by=popularity.desc") now_playing;
+  }
+
+   // by movies
+  loadMovies(){
+    this.apiService.getMovies("now_playing").subscribe(data => {
+      this.movies = data['results'];
+      console.log(this.movies);
+    });
+  }
+
+   // by series
+  loadSeries(){
+    this.apiService.getTvshows("now_playing").subscribe(data => {
+      this.series = data['results'];
+      console.log(this.series);
+    });
+  }
+
+  // open Side Menu
   openSideNav() {
     this.menu.enable(true, 'main-menu');
     this.menu.open('main-menu');
     console.log("menu test");
-  }
-
-  async openLanguagePopover(ev){
-    const popover = await this.popoverCtrl.create({
-      component: LanguagePopoverPage,
-      event: ev
-    });
-    await popover.present();
   }
 }

@@ -81,20 +81,20 @@ export class AuthService {
   RestPassword(email: string){
     this.firebaseAuth.sendPasswordResetEmail(email)
       .then(
-       async () => {
-          // success, show some message
-          const alert = await this.alertCtrl.create({
-            message: 'Check your email to rest password',
-            buttons:[{text: 'ok', role: 'cancel', handler: ()=>{
-              this.router.navigate(['/login']);
-            },},],
-          });
-          await alert.present();
-        },
-        err => {
-          // handle errors
-           this.eventAuthError.next(err);
-        }
+        async () => {
+            // success, show some message
+            const alert = await this.alertCtrl.create({
+              message: 'Check your email to rest password',
+              buttons:[{text: 'ok', role: 'cancel', handler: ()=>{
+                this.router.navigate(['/login']);
+              },},],
+            });
+            await alert.present();
+          },
+          err => {
+            // handle errors
+            this.eventAuthError.next(err);
+          }
     );
   }
 }
