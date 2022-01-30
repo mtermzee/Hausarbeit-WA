@@ -37,7 +37,9 @@ export class LanguageService {
     this.translate.use(lng);
     // for our App storage
     this.selected = lng;
-    this.storage.set(LNG_KEY, lng).then(
+    this.storage.set(LNG_KEY, lng);
+
+    /*.then(
       
       async () => {
         // success, show some message
@@ -51,7 +53,7 @@ export class LanguageService {
         });
         await alert.present();
       }
-    );
+    );*/
     
     console.log("Deafult Language: " + lng);
   }
