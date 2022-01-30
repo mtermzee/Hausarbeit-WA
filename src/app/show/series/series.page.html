@@ -17,48 +17,49 @@
 </ion-header>
 
 <ion-content class='page-content'>
+  <div class="container-fluid">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor='let serie of series'>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6" *ngFor='let serie of series'>
+          <ion-card button class='card' [routerLink]="['/', 'tv', serie.id]">
+            <ion-buttons class="card-fav">
+              <ion-button>
+                <ion-icon name="heart-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
 
-        <ion-card button class='card' [routerLink]="['/', 'tv', serie.id]">
-          <ion-buttons class="card-fav">
-            <ion-button>
-              <ion-icon name="heart-outline"></ion-icon>
-            </ion-button>
-          </ion-buttons>
+            <ion-card-header class="ion-no-padding">
+              <img [src]="IMG_URL + serie.poster_path">
+            </ion-card-header>
 
-          <ion-card-header class="ion-no-padding">
-            <img [src]="IMG_URL + serie.poster_path">
-          </ion-card-header>
-
-          <ion-card-content class="ion-no-padding">
-            <div class="card-subtitle">
-              <ion-row>
-                <ion-col>
-                  <ion-icon name="star"></ion-icon>
-                  <div>{{serie.vote_average}}</div>
-                </ion-col>
-                <ion-col>
-                  <ion-icon name="calendar"></ion-icon>
-                  <div>{{serie.first_air_date | date: 'yyyy'}}</div>
-                </ion-col>
-              </ion-row>
-            </div>
-          </ion-card-content>
-
-
-        </ion-card>
+            <ion-card-content class="ion-no-padding">
+              <div class="card-subtitle">
+                <ion-row>
+                  <ion-col>
+                    <ion-icon name="star"></ion-icon>
+                    <div>{{serie.vote_average}}</div>
+                  </ion-col>
+                  <ion-col>
+                    <ion-icon name="calendar"></ion-icon>
+                    <div>{{serie.first_air_date | date: 'yyyy'}}</div>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-card-content>
 
 
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+          </ion-card>
 
-  <ion-infinite-scroll threshold="5%" id="infinite-scroll" (ionInfinite)="loadMore($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data…">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-infinite-scroll threshold="5%" id="infinite-scroll" (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data…">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </div>
 </ion-content>
