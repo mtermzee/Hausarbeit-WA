@@ -38,6 +38,14 @@ const routes: Routes = [
     path: 'search',
     loadChildren: () => import('./show/search/search.module').then( m => m.SearchPageModule)
   },
+  {
+    path: 'movie/:id',
+    loadChildren: () => import('./show/movies/movie-detail/movie-detail.module').then( m => m.MovieDetailPageModule)
+  },
+  {
+    path: 'tv/:id',
+    loadChildren: () => import('./show/series/serie-detail/serie-detail.module').then( m => m.SerieDetailPageModule)
+  },
 
   /*{
     path: '',

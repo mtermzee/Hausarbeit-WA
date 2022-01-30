@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: SeriesPage
+  },
+  {
+    path: 'tv/:id',
+    loadChildren: () => import('./serie-detail/serie-detail.module').then( m => m.SerieDetailPageModule)
   }
 ];
 

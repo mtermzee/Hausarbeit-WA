@@ -16,7 +16,7 @@
     <ion-row>
       <ion-col size="6" *ngFor='let movie of movies'>
 
-        <ion-card button class='card'>
+        <ion-card button [routerLink]="['/', 'movie', movie.id]" class='card'>
           <ion-buttons class="card-fav">
             <ion-button>
               <ion-icon name="heart-outline"></ion-icon>

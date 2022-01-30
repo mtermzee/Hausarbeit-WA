@@ -41,7 +41,7 @@ export class ApiService {
   }
 
   // by internal ID
-  getTv(id){
+  getTvshow(id){
      return this.http.get(`${BASE_URL}/tv/${id}?api_key=${API_KEY}&language=${this.lang}`);
   }
 

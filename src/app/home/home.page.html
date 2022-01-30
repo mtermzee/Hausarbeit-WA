@@ -34,7 +34,7 @@
 
       <ion-slides class="slides" [options]="slideOpts">
         <ion-slide *ngFor="let movie of sortMovies | paginate: { itemsPerPage: 10, currentPage: 1}">
-          <div button>
+          <div button [routerLink]="['/', 'movie', movie.id]">
             <img [src]="IMG_URL + movie.backdrop_path">
             <p class="title">{{ movie.title }}</p>
           </div>
@@ -70,7 +70,7 @@
     </ion-item>
     <ion-slides class="listSlides" [options]='slideOpts3'>
       <ion-slide *ngFor="let movie of movies">
-        <div>
+        <div button [routerLink]="['/', 'movie', movie.id]">
           <img [src]="IMG_URL + movie.poster_path">
         </div>
       </ion-slide>
@@ -86,7 +86,7 @@
     </ion-item>
     <ion-slides class="listSlides" [options]='slideOpts3'>
       <ion-slide *ngFor="let serie of series">
-        <div>
+        <div button [routerLink]="['/', 'tv', serie.id]">
           <img [src]="IMG_URL + serie.poster_path">
         </div>
       </ion-slide>
