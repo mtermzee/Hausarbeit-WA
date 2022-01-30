@@ -25,9 +25,13 @@
   </div>-->
 
   <div class="m-2">
-
     <div class="mt-4">
-      <p class="text-center fs-3">Now playing</p>
+
+      <div class="sign text-center">
+        <span class="fast-flicker">now</span><span class="flicker">play</span>ing
+      </div>
+
+
       <ion-slides class="slides" [options]="slideOpts">
         <ion-slide *ngFor="let movie of sortMovies | paginate: { itemsPerPage: 10, currentPage: 1}">
           <div button>
@@ -58,7 +62,7 @@
 
     <ion-item lines="none">
       <p class="subTitle">{{ 'HOME.movies' | translate }}</p>
-      <ion-buttons slot="end">
+      <ion-buttons slot="end" [routerLink]="['/movies']">
         <ion-button>
           <ion-icon slot="icon-only" name="chevron-forward" size='small'></ion-icon>
         </ion-button>
@@ -74,7 +78,7 @@
 
     <ion-item lines="none">
       <p class="subTitle">{{ 'HOME.tv' | translate }}</p>
-      <ion-buttons slot="end">
+      <ion-buttons slot="end" [routerLink]="['/series']">
         <ion-button>
           <ion-icon slot="icon-only" name="chevron-forward" size='small'></ion-icon>
         </ion-button>
