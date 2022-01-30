@@ -45,6 +45,12 @@
       {{movie.overview}}
     </ion-card-content>
 
+    <div>
+      <ion-button expand="full" (click)='openWebsite()' *ngIf="movie.homepage && movie.homepage != 'N/A'">
+        Open Website
+      </ion-button>
+    </div>
+
     <!--<ion-row>
       <ion-col text-right>
         <a href="{{'https://www.youtube.com/watch?v='+movie.videos.results[0].key}}" ion-button clear small

@@ -22,6 +22,6 @@ export class MovieDetailPage implements OnInit {
   }
 
   openWebsite(){
-    window.open(this.information.Website, '_blank');
+    window.open(this.information.homepage, '_blank');
   }
 }

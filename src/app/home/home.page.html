@@ -33,7 +33,7 @@
 
 
       <ion-slides class="slides" [options]="slideOpts">
-        <ion-slide *ngFor="let movie of sortMovies | paginate: { itemsPerPage: 10, currentPage: 1}">
+        <ion-slide *ngFor="let movie of sortMovies | paginate: { itemsPerPage: 10, currentPage: 2}">
           <div button [routerLink]="['/', 'movie', movie.id]">
             <img [src]="IMG_URL + movie.backdrop_path">
             <p class="title">{{ movie.title }}</p>
