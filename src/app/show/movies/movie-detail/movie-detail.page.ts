@@ -9,7 +9,8 @@ import { ApiService } from 'src/app/services/imdb/api.service';
 })
 export class MovieDetailPage implements OnInit {
   information: any;
-
+  isSeeMore: boolean = false;
+  
   constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit() {
@@ -23,5 +24,10 @@ export class MovieDetailPage implements OnInit {
 
   openWebsite(){
     window.open(this.information.homepage, '_blank');
+  }
+
+  getColor(i) {
+    let colors = ["#8C1B2F", "#283040", "#95D904", "#045E74", "#01A794"]
+    return colors[i];
   }
 }

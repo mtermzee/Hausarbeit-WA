@@ -10,48 +10,77 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class='page-content' padding>
-
+<ion-content>
   <ion-card *ngIf="this.information; let serie">
     <img src="{{'https://image.tmdb.org/t/p/w500'+serie.backdrop_path}}" />
 
-    <div class="card-subtitle">
-      <ion-list>
-        <ion-item class="item-info">
-          <ion-badge class="badge-info" *ngFor="let genre of serie.genres" item-start>{{genre.name}}</ion-badge>
-        </ion-item>
-        <ion-item class="item-info">
-          <ion-badge item-start class="badge-info" *ngFor="let company of serie.production_companies">{{company.name}}
-          </ion-badge>
-        </ion-item>
-      </ion-list>
-
-      <ion-row class="small-padding">
-        <ion-col>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='star'></ion-icon>
-            {{serie.vote_average}}
-          </button>
-        </ion-col>
-        <ion-col text-center>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='calendar'></ion-icon>
+    <div class="content-info">
+      <div class="data-info">
+        <div class="basic-info">
+          <h1>{{serie.name}}</h1>
+          <p>
+            <i>
+              <ion-icon name="calendar-outline"></ion-icon>
+            </i>
             {{serie.first_air_date | date}}
+          </p>
+
+          <p>
+            <i>
+              <ion-icon name="tv-outline" slot="start"></ion-icon>
+            </i>
+            {{serie.number_of_seasons}} Seasons
+          </p>
+        </div>
+
+        <a class="vote rotate-center">
+          {{serie.vote_average}}
+        </a>
+      </div>
+
+      <div class="genres">
+        <h5>Genres</h5>
+        <div class="genres-list">
+          <ion-chip *ngFor="let genre of information.genres; let i = index"
+            [ngStyle]="{'background-color': getColor(i)}">
+            <ion-label>{{genre.name}}</ion-label>
+          </ion-chip>
+        </div>
+      </div>
+
+      <div class="about-view">
+        <h5>Overview</h5>
+        <p *ngIf="!isSeeMore">{{(serie.overview).substring(0, 100)}}
+          <span>...</span>
+          <span button (click)="isSeeMore = true" class="more-less">&nbsp;See more</span>
+        </p>
+        <p *ngIf="isSeeMore">{{serie.overview}}
+          <span button class="more-less" (click)="isSeeMore = false">&nbsp;See less</span>
+        </p>
+      </div>
+
+
+      <ion-footer>
+        <div class="p-2 d-flex align-items-center justify-content-around">
+          <button class="btn btn-dark d-flex align-items-center" (click)='openWebsite()'
+            *ngIf="serie.homepage && serie.homepage != 'N/A'">
+            <ion-icon class="footer-btn" name="globe-outline"></ion-icon>
           </button>
-        </ion-col>
-      </ion-row>
-    </div>
-    <ion-card-content>
-      {{serie.overview}}
-    </ion-card-content>
 
-    <div>
-      <ion-button expand="full" (click)='openWebsite()' *ngIf="serie.homepage && serie.homepage != 'N/A'">
-        Open Website
-      </ion-button>
-    </div>
+          <button class="btn btn-dark d-flex align-items-center">
+            <ion-icon class="footer-btn" name="add-outline"></ion-icon>
+          </button>
 
-    <!--<ion-row>
+          <button class="btn btn-dark d-flex align-items-center">
+            <ion-icon class="footer-btn" name="share-social-outline"></ion-icon>
+          </button>
+        </div>
+      </ion-footer>
+    </div>
+  </ion-card>
+</ion-content>
+
+<!--<ion-row>
       <ion-col text-right>
         <a href="{{'https://www.youtube.com/watch?v='+serie.videos.results[0].key}}" ion-button clear small
           color="danger" icon-start>
@@ -60,7 +89,3 @@
         </a>
       </ion-col>
     </ion-row>-->
-
-  </ion-card>
-
-</ion-content>

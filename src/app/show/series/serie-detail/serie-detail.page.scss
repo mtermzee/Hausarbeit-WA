@@ -1,16 +1,124 @@
-movie-detail {
+$primary: #7754f6;
+$secoundry: #cacaca;
 
-  .test {
-    color: white;
+.content-info {
+  margin-top: 20px;
+
+  .data-info {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .basic-info {
+      display: flex;
+      flex-direction: column;
+
+      h1,
+      p {
+        margin: 0 0 10px 0;
+      }
+
+      p {
+        font-size: 0.8rem;
+        color: $secoundry;
+
+        i {
+          font-size: 1.2rem;
+          color: $primary;
+          margin-right: 5px;
+          top: 10px;
+        }
+      }
+
+      h1 {
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+    }
+
+    .vote {
+      background: $primary;
+      padding: 10px;
+      color: #fff;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      text-decoration: none;
+    }
+
+    .rotate-center {
+      -webkit-animation: rotate-center 10s ease-out both;
+      animation: rotate-center 10s ease-out both
+    }
   }
 
-  .item-info {
-    min-height: 3rem !important;
-    padding-bottom: 0px;
+  .genres {
+    padding: 0 20px;
+
+    h5 {
+      margin: 0 0 5px 0;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    ion-chip {
+      color: #fff;
+    }
   }
 
-  .badge-info {
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
+  .about-view {
+    padding: 15px 20px;
+
+    h5,
+    p {
+      margin: 0 0 5px 0;
+    }
+
+    h5 {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: $secoundry;
+      font-size: 16px;
+
+      .more-less {
+        color: black;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .footer-btn {
+    font-size: 1.5rem;
+  }
+}
+
+
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0)
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0)
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg)
   }
 }
