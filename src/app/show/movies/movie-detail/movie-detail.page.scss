@@ -1,5 +1,6 @@
 $primary: #7754f6;
 $secoundry: #cacaca;
+$vote: #283040;
 
 .content-info{
   margin-top: 20px;
@@ -34,17 +35,19 @@ $secoundry: #cacaca;
       }
     }
     .vote{
-        background: $primary;
-        padding: 10px;
+        background: $vote;
         color: #fff;
-        border-radius: 50px;
         font-size: 0.8rem;
         font-weight: 700;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
         text-decoration: none;
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
+        padding: 6px 0px;
+        border-radius: 15px;
         text-align: center;
+        line-height: 1.42857;
     }
     .heart {
      animation: beat 1s infinite alternate;
