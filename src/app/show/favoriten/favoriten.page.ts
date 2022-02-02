@@ -63,7 +63,7 @@ export class FavoritenPage implements OnInit {
     window.open(homepage, '_blank');
    }
   
-  accountLink(item) {
+   accountLink(item) {
      // https://www.reddit.com/r/angular/comments/9n0uby/how_can_i_use_an_ngfor_and_an_ngif_so_that_the/
      if (item.type === 'movie') {
        console.log("Movie");
