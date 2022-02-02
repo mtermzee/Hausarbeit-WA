@@ -72,7 +72,8 @@
           </button>
 
           <button class="btn btn-dark d-flex align-items-center">
-            <ion-icon class="footer-btn" name="share-social-outline"></ion-icon>
+            <ion-icon class="footer-btn" name="share-social-outline" (click)="share(serie.name, serie.homepage)">
+            </ion-icon>
           </button>
         </div>
       </ion-footer>

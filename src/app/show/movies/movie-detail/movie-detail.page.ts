@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from 'src/app/services/datebase/firebase.service';
 import { ApiService } from 'src/app/services/imdb/api.service';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
 @Component({
   selector: 'app-movie-detail',
@@ -46,5 +47,17 @@ export class MovieDetailPage implements OnInit {
       type: "movie"
   }; 
     this.dbService.createItem(this.favorites, this.information.id);
+  }
+
+  share(name, homepage) {
+      navigator.share({
+      'title': name,
+      'text': 'Check out this one!',
+      'url': homepage
+    }).then(function() {
+      console.log('Successful share');
+    }).catch(function(error) {
+      console.log('Error sharing:', error)
+    });
   }
 }
