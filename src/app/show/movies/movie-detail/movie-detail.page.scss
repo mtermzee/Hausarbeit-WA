@@ -30,24 +30,24 @@ $vote: #283040;
         }
       }
       h1{
-        font-size: 1.3rem;
+        font-size: 1rem;
         font-weight: 700;
       }
     }
     .vote{
-        background: $vote;
-        color: #fff;
-        font-size: 0.8rem;
-        font-weight: 700;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-        text-decoration: none;
-        width: 30px;
-        height: 30px;
-        padding: 6px 0px;
-        border-radius: 15px;
-        text-align: center;
-        line-height: 1.42857;
+      background: $vote;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      text-decoration: none;
+      width: 30px;
+      height: 30px;
+      padding: 6px 0px;
+      border-radius: 15px;
+      text-align: center;
+      line-height: 1.42857;
     }
     .heart {
      animation: beat 1s infinite alternate;
@@ -58,32 +58,35 @@ $vote: #283040;
   .genres{
     padding: 0 20px;
    
-    h5{
+    h1{
       margin: 0 0 5px 0;
       font-weight: 700;
       margin-bottom: 10px;
+      font-size: 1rem;
     }
     ion-chip{
       color: #fff;
+      font-size: 0.8rem;
     }
   }
 
   .about-view {
     padding: 15px 20px;
 
-    h5,
+    h1,
     p {
       margin: 0 0 5px 0;
     }
 
-    h5 {
+    h1 {
       font-weight: 700;
       margin-bottom: 10px;
+      font-size: 1rem;
     }
 
     p {
       color: $secoundry;
-      font-size: 16px;
+      font-size: 0.9rem;
 
       .more-less {
         color: black;

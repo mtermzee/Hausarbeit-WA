@@ -33,7 +33,7 @@ $vote: #283040;
       }
 
       h1 {
-        font-size: 1.3rem;
+        font-size: 1rem;
         font-weight: 700;
       }
     }
@@ -63,33 +63,36 @@ $vote: #283040;
   .genres {
     padding: 0 20px;
 
-    h5 {
+    h1 {
       margin: 0 0 5px 0;
       font-weight: 700;
       margin-bottom: 10px;
+      font-size: 1rem;
     }
 
     ion-chip {
       color: #fff;
+      font-size: 0.8rem;
     }
   }
 
   .about-view {
     padding: 15px 20px;
 
-    h5,
+    h1,
     p {
       margin: 0 0 5px 0;
     }
 
-    h5 {
+    h1 {
       font-weight: 700;
       margin-bottom: 10px;
+      font-size: 1rem;
     }
 
     p {
       color: $secoundry;
-      font-size: 16px;
+      font-size: 0.9rem;
 
       .more-less {
         color: black;
