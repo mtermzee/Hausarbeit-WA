@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList  } from '@angular/fire/compat/database';
+import { AlertController } from '@ionic/angular';
 import firebase from "firebase/compat/app";
-import { Observable } from 'rxjs';
+import { Observable, async, BehaviorSubject } from 'rxjs';
 
 const dbRef = firebase.database().ref();
 const db = firebase.database();
@@ -16,7 +17,7 @@ export class FirebaseService {
   
   userId: string;
 
-  constructor(private afDb: AngularFireDatabase) { 
+  constructor(private afDb: AngularFireDatabase, private alertCtrl: AlertController) { 
     this.userId = firebase.auth().currentUser.uid;
 
     //----< ngOnInit() >----
@@ -37,7 +38,20 @@ export class FirebaseService {
   // Create a brand new item
   createItem(items, id) {
     //items.userId = this.userId;
-    db.ref('favorites/' + this.userId + '/' + id).set(items);
+    db.ref('favorites/' + this.userId + '/' + id).set(items).then(
+      async () => {
+            // success, show some message
+            const alert = await this.alertCtrl.create({
+              message: 'Item added successfully',
+              buttons:[{text: 'ok', role: 'cancel', handler: ()=>{
+              },},],
+            });
+            await alert.present();
+          },
+          err => {
+            // handle errors
+            console.log("item can't added!")
+          });
   }
 
   // delete item

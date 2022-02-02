@@ -24,8 +24,8 @@
               </ion-thumbnail>
               <ion-label>
                 <h2>{{ item.name }}</h2>
-                <p>{{ item.date }}</p>
-                <p>{{ item.vote }}</p>
+                <p>{{ item.timeAdded | date }}</p>
+                <p><span style="font-weight: 700;">{{ item.type }}</span></p>
               </ion-label>
               <ion-note slot="end">
                 {{ item.timeAdded | date:'shortTime' }}
