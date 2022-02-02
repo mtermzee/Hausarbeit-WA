@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>favoriten</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/home']">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <!-- Multi-line sliding item with icon options on both sides -->
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item-sliding id="item100" *ngFor='let item of favorites | async'>
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="{{'https://image.tmdb.org/t/p/w500'+item.pic}}">
+              </ion-thumbnail>
+              <ion-label>
+                <h2>{{ item.name }}</h2>
+                <p>{{ item.date }}</p>
+                <p>{{ item.vote }}</p>
+              </ion-label>
+              <ion-note slot="end">
+                {{ item.timeAdded | date:'shortTime' }}
+              </ion-note>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="danger" (click)="delete(item.uid)">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+              </ion-item-option>
+              <ion-item-option color="dark" (click)='openWebsite(item.homepage)'>
+                <ion-icon slot="icon-only" name="globe-outline"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>
+
+
+<!--https://ionicframework.com/docs/api/item-sliding
+
+{{ dateObj | date }} // output is 'Jun 15, 2015'
+{{ dateObj | date:'medium' }} // output is 'Jun 15, 2015, 9:43:11 PM'
+{{ dateObj | date:'shortTime' }} // output is '9:43 PM'
+{{ dateObj | date:'mm:ss' }} // output is '43:11'
+
+-->

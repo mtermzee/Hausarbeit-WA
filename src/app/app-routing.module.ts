@@ -46,6 +46,10 @@ const routes: Routes = [
     path: 'tv/:id',
     loadChildren: () => import('./show/series/serie-detail/serie-detail.module').then( m => m.SerieDetailPageModule)
   },
+  {
+    path: 'favoriten',
+    loadChildren: () => import('./show/favoriten/favoriten.module').then( m => m.FavoritenPageModule)
+  },
 
   /*{
     path: '',

@@ -46,7 +46,8 @@ import { LanguagePopoverPageModule } from './popovers/language-popover/language-
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule // storage
+    AngularFireStorageModule, // storage
+    AngularFireDatabaseModule, // realtime
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
