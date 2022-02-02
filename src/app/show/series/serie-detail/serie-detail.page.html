@@ -39,7 +39,7 @@
       </div>
 
       <div class="genres">
-        <h5>Genres</h5>
+        <h5>{{ 'DETAIL.genres' | translate }}</h5>
         <div class="genres-list">
           <ion-chip *ngFor="let genre of information.genres; let i = index"
             [ngStyle]="{'background-color': getColor(i)}">
@@ -49,13 +49,13 @@
       </div>
 
       <div class="about-view">
-        <h5>Overview</h5>
+        <h5>{{ 'DETAIL.overview' | translate }}</h5>
         <p *ngIf="!isSeeMore">{{(serie.overview).substring(0, 100)}}
           <span>...</span>
-          <span button (click)="isSeeMore = true" class="more-less">&nbsp;See more</span>
+          <span button (click)="isSeeMore = true" class="more-less">&nbsp;{{ 'DETAIL.more' | translate }}</span>
         </p>
         <p *ngIf="isSeeMore">{{serie.overview}}
-          <span button class="more-less" (click)="isSeeMore = false">&nbsp;See less</span>
+          <span button class="more-less" (click)="isSeeMore = false">&nbsp;{{ 'DETAIL.less' | translate }}</span>
         </p>
       </div>
 

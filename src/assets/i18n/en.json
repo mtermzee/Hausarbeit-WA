@@ -60,6 +60,17 @@
         "all": "All",
         "movie": "Movies",
         "tv": "Series"
+    },
+
+    "FAVE": {
+        "title": "Favourites"
+    },
+
+    "DETAIL": {
+        "genres": "Genres",
+        "overview": "Overview",
+        "more": "See more",
+        "less": "See less"
     }
 
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { FavoritenPage } from './favoriten.page';
+
 
 const routes: Routes = [
   {
