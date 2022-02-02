@@ -56,7 +56,7 @@
 
      "SEARCH": {
         "title": "Suchen",
-        "type": "Suche nach",
+        "type": "Standardauswahl",
         "all": "Alle",
         "movie": "Filme",
         "tv": "Serie"

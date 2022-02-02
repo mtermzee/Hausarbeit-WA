@@ -7,16 +7,17 @@
         <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
+  </ion-toolbar>
 
+  <ion-toolbar>
+    <div class="spacer-searchbar-nav"></div>
+    <ion-searchbar mode="ios" showCancelButton="focus" color="dark" animated [(ngModel)]="searchTerm"
+      (ionChange)="searchChanged($event)">
+    </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
-  <div class="spacer-searchbar-nav"></div>
-  <ion-searchbar mode="ios" showCancelButton="focus" color="dark" animated [(ngModel)]="searchTerm"
-    (ionChange)="searchChanged($event)"></ion-searchbar>
-
 
   <ion-item>
     <ion-label>{{ 'SEARCH.type' | translate }}</ion-label>
