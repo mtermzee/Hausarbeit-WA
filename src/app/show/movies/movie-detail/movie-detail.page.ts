@@ -42,8 +42,8 @@ export class MovieDetailPage implements OnInit {
       vote: this.information.vote_average,
       pic: this.information.poster_path,
       homepage: this.information.homepage,
-      timeAdded: this.today
-    
+      timeAdded: this.today,
+      type: "movie"
   }; 
     this.dbService.createItem(this.favorites, this.information.id);
   }
