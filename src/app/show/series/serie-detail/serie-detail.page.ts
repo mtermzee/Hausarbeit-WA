@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from 'src/app/services/datebase/firebase.service';
 import { ApiService } from 'src/app/services/imdb/api.service';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-serie-detail',
@@ -14,18 +15,43 @@ export class SerieDetailPage implements OnInit {
   isSeeMore: boolean = false;
   favorites: any;
   today: number = Date.now();
+  id: any;
+   // Videos 
+  videos: any;
+  key: string;
+  ytUrl: string;
+  videoUrl: any;
+  done: boolean = false;
   
-  constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService, private dbService: FirebaseService) { }
+  constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService, private dbService: FirebaseService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-     let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.apiService.getTvshow(id).subscribe(result => {
+    this.apiService.getTvshow(this.id).subscribe(result => {
       this.information = result;
       console.log('details: ',this.information);
     });
+
+    this.getVideos();
   }
 
+  getVideos() {
+    this.apiService.getTvVideos(this.id).subscribe(
+      result => {
+        this.videos = result;
+        console.log('videos: ', this.videos);
+        // https://angular.io/guide/security#xss
+        // https://stackoverflow.com/questions/39438039/correct-way-provide-domsanitizer-to-component-with-angular-2-rc6
+        this.key = this.videos.results[0].key;
+        if (this.key) {
+          this.done = true;
+          this.ytUrl = 'https://www.youtube.com/embed/' + this.key;
+          this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.ytUrl);
+        }
+      });
+  }
+  
   openWebsite(){
     window.open(this.information.homepage, '_blank');
   }

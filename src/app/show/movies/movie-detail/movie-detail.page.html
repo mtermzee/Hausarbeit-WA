@@ -69,6 +69,15 @@
         </p>
       </div>
 
+      <div *ngIf="done">
+        <ion-card-content *ngIf="this.videos; let video">
+          <div class="trailer">
+            <iframe width="100%" height="100%" [src]="videoUrl" title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </ion-card-content>
+      </div>
 
       <ion-footer>
         <div class="p-2 d-flex align-items-center justify-content-around">

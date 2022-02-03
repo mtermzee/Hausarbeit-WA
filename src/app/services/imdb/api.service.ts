@@ -55,6 +55,16 @@ export class ApiService {
     return this.http.get(`${BASE_URL}/tv/popular?&api_key=${API_KEY}&language=${this.lang}&page=${pNumber}`);
   }
 
+  // get Movie Videos
+  getMovieVideos(id){
+    return this.http.get(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}&language=${this.lang}`);
+  }
+
+  // get Serie Videos
+  getTvVideos(id){
+    return this.http.get(`${BASE_URL}/tv/${id}/videos?api_key=${API_KEY}&language=${this.lang}`);
+  }
+
   // Search by name
   searchData(title: string, type: SearchType): Observable<any>{
     return this.http.get(`${BASE_URL}/search/${type}?api_key=${API_KEY}&query=${encodeURI(title)}&language=${this.lang}`).
