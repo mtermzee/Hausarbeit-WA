@@ -43,11 +43,13 @@ export class MovieDetailPage implements OnInit {
        console.log('videos: ', this.videos);
        // https://angular.io/guide/security#xss
        // https://stackoverflow.com/questions/39438039/correct-way-provide-domsanitizer-to-component-with-angular-2-rc6
-       this.key = this.videos.results[0].key;
-       if (this.key) {
+       if (this.videos.results[0].key) {
+         this.key = this.videos.results[0].key;
          this.done = true;
          this.ytUrl = 'https://www.youtube.com/embed/' + this.key;
-         this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.ytUrl);}
+         this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.ytUrl);
+       } else
+         console.log("no key");
     });
   }
 
