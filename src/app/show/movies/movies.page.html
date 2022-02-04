@@ -30,7 +30,8 @@
             </ion-buttons>
 
             <ion-card-header class="ion-no-padding">
-              <img [src]="IMG_URL + movie.poster_path">
+              <img [src]="IMG_URL + movie.poster_path" *ngIf="movie.poster_path">
+              <img src="assets/icon/404.jpg" *ngIf="!movie.poster_path">
             </ion-card-header>
 
             <ion-card-content class="ion-no-padding">

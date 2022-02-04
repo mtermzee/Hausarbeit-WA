@@ -12,7 +12,8 @@
 
 <ion-content>
   <ion-card *ngIf="this.information; let serie">
-    <img src="{{'https://image.tmdb.org/t/p/w500'+serie.backdrop_path}}" />
+    <img src="{{'https://image.tmdb.org/t/p/w500'+serie.backdrop_path}}" *ngIf="serie.poster_path" />
+    <img src="assets/icon/404.jpg" *ngIf="!serie.poster_path">
 
     <div class="content-info">
       <div class="data-info">
@@ -48,7 +49,7 @@
         </div>
       </div>
 
-      <div class="about-view">
+      <div class="about-view" *ngIf="serie.overview">
         <h1>{{ 'DETAIL.overview' | translate }}</h1>
         <p *ngIf="!isSeeMore">{{(serie.overview).substring(0, 100)}}
           <span>...</span>
