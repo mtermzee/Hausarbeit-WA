@@ -81,22 +81,25 @@
         </ion-card-content>
       </div>
 
-      <ion-footer>
-        <div class="p-2 d-flex align-items-center justify-content-around">
-          <button class="btn btn-dark d-flex align-items-center" (click)='openWebsite()'
-            *ngIf="movie.homepage && movie.homepage != 'N/A'">
-            <ion-icon class="footer-btn" name="globe-outline"></ion-icon>
-          </button>
+      <div class="footer">
+        <ion-footer>
+          <div class="p-2 d-flex align-items-center justify-content-around">
+            <button class="btn d-flex align-items-center footer-btn" (click)='openWebsite()'
+              *ngIf="movie.homepage && movie.homepage != 'N/A'">
+              <ion-icon name="globe-outline"></ion-icon>
+            </button>
 
-          <button class="btn btn-dark d-flex align-items-center" (click)="setFav()">
-            <ion-icon class="footer-btn" name="add-outline"></ion-icon>
-          </button>
+            <button class="btn d-flex align-items-center footer-btn" (click)="setFav()">
+              <ion-icon name="add-outline"></ion-icon>
+            </button>
 
-          <button class="btn btn-dark d-flex align-items-center" (click)="share(movie.title, movie.homepage)">
-            <ion-icon class="footer-btn" name="share-social-outline"></ion-icon>
-          </button>
-        </div>
-      </ion-footer>
+            <button class="btn d-flex align-items-center footer-btn" (click)="share(movie.title, movie.homepage)">
+              <ion-icon name="share-social-outline"></ion-icon>
+            </button>
+          </div>
+        </ion-footer>
+      </div>
+
     </div>
   </ion-card>
 </ion-content>

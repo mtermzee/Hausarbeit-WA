@@ -24,7 +24,7 @@ $vote: #283040;
 
         i{
           font-size: 1.2rem;
-          color: $primary;
+          color: $vote;
           margin-right: 5px;
           top: 10px;
         }
@@ -111,9 +111,19 @@ $vote: #283040;
     }
   }
 
-  .footer-btn{
-    font-size: 1.5rem;
+  .footer {
+    padding-top: 15px;
+
+    .footer-btn {
+      font-size: 1.5rem;
+      color: #fff;
+      background: $primary;
+      border-radius: 10px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
   }
+ 
 }
 
 /* Heart beat animation */
