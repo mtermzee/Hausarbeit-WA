@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
-import { AlertController } from '@ionic/angular';
 
 const LNG_KEY = 'SELECTED_LANGUAGE';
 
@@ -11,18 +10,18 @@ const LNG_KEY = 'SELECTED_LANGUAGE';
 export class LanguageService {
   selected = '';
 
-  constructor(private translate: TranslateService, private storage:Storage, private alertCtrl: AlertController) { }
+  constructor(private translate: TranslateService, private storage:Storage) { }
 
   setIntialAppLanguage(){
     let language = this.translate.getBrowserLang();
     this.translate.setDefaultLang(language);
 
       this.storage.get(LNG_KEY).then(val => {
-      if (val){
-        this.setLanguage(val);
-        this.selected = val;
-      }
-    });
+        if (val) {
+          this.setLanguage(val);
+          this.selected = val;
+        } 
+      });
   }
 
   getLanguages(){
@@ -38,23 +37,8 @@ export class LanguageService {
     // for our App storage
     this.selected = lng;
     this.storage.set(LNG_KEY, lng);
-
-    /*.then(
-      
-      async () => {
-        // success, show some message
-        const alert = await this.alertCtrl.create({
-          message: 'If you change the language, you might restart the application.',
-          buttons: [{
-            text: 'ok', role: 'cancel', handler: () => {
-              // this.router.navigate(['/login']);
-            },
-          },],
-        });
-        await alert.present();
-      }
-    );*/
     
     console.log("Deafult Language: " + lng);
   }
+
 }
