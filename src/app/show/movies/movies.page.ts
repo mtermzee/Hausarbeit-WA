@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirebaseService } from 'src/app/services/datebase/firebase.service';
 import { ApiService } from 'src/app/services/imdb/api.service';
 
 
@@ -14,7 +15,9 @@ export class MoviesPage implements OnInit {
   pageNum = 1;
   maxPages: any;
 
-  constructor(private router: Router, private apiService: ApiService) { }
+  fave = this.dbService.items_Firebase_Data.valueChanges();
+
+  constructor(private router: Router, private apiService: ApiService, private dbService: FirebaseService) { }
 
   ngOnInit() {
     this.loadMovies();
