@@ -12,9 +12,6 @@ import { ApiService } from '../services/imdb/api.service';
 })
 export class HomePage {
 
-  user: firebase.User;
-
-
   // Slide effect
   public slideOpts2 = {
     slidesPerView: 2.6,
@@ -105,6 +102,8 @@ export class HomePage {
     }
   }
 
+  user: firebase.User;
+  
   IMG_URL = "https://image.tmdb.org/t/p/w500";
   sortMovies: any;
   movies: any;
@@ -127,7 +126,7 @@ export class HomePage {
 
   // by best movies
   loadSortMovies(){
-    this.apiService.getMovies("sort_by=popularity.desc").subscribe(data => {
+    this.apiService.getMovies("now_playing").subscribe(data => {
       this.sortMovies = data['results'];
       console.log(this.sortMovies);
     });
@@ -136,7 +135,7 @@ export class HomePage {
 
    // by movies
   loadMovies(){
-    this.apiService.getMovies("now_playing").subscribe(data => {
+    this.apiService.getMovies("popular").subscribe(data => {
       this.movies = data['results'];
       console.log(this.movies);
     });
@@ -144,7 +143,7 @@ export class HomePage {
 
    // by series
   loadSeries(){
-    this.apiService.getTvshows("now_playing").subscribe(data => {
+    this.apiService.getTvshows("popular").subscribe(data => {
       this.series = data['results'];
       console.log(this.series);
     });
