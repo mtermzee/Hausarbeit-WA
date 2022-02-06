@@ -29,7 +29,8 @@
   </ion-item>
 
   <ion-list>
-    <ion-item button *ngFor="let item of (results | async)">
+    <ion-item button *ngFor="let item of (results | async)"
+      [routerLink]="item.media_type === 'movie' ? ['/', 'movie', item.id] : ['/', 'tv', item.id]">
 
       <ion-avatar slot="start">
         <img [src]="IMG_URL + item.poster_path" *ngIf="item.poster_path">
@@ -40,9 +41,8 @@
         <h2>{{ item.title || item.name }}</h2>
         <h4>{{ item.release_date || item.first_air_date}} </h4>
       </ion-label>
-      <ion-icon button slot="end" *ngIf="item.title" name="videocam" [routerLink]="['/', 'movie', item.id]"></ion-icon>
-      <ion-icon button slot="end" *ngIf="item.name" name="tv" [routerLink]="['/', 'tv', item.id]">
-      </ion-icon>
+      <ion-icon slot="end" *ngIf="item.title" name="videocam"></ion-icon>
+      <ion-icon slot="end" *ngIf="item.name" name="tv"></ion-icon>
 
     </ion-item>
   </ion-list>

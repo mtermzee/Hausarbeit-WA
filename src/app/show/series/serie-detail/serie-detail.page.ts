@@ -28,7 +28,7 @@ export class SerieDetailPage implements OnInit {
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.apiService.getTvshow(this.id).subscribe(result => {
+    this.apiService.getItemId("tv", this.id).subscribe(result => {
       this.information = result;
       console.log('details: ',this.information);
     });
@@ -37,7 +37,7 @@ export class SerieDetailPage implements OnInit {
   }
 
   getVideos() {
-    this.apiService.getTvVideos(this.id).subscribe(
+    this.apiService.getItemVideos("tv", this.id).subscribe(
       result => {
         this.videos = result;
         console.log('videos: ', this.videos);

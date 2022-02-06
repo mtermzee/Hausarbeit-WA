@@ -126,7 +126,7 @@ export class HomePage {
 
   // by best movies
   loadSortMovies(){
-    this.apiService.getMovies("now_playing").subscribe(data => {
+    this.apiService.getItems("movie", "now_playing").subscribe(data => {
       this.sortMovies = data['results'];
       console.log(this.sortMovies);
     });
@@ -135,7 +135,7 @@ export class HomePage {
 
    // by movies
   loadMovies(){
-    this.apiService.getMovies("popular").subscribe(data => {
+    this.apiService.getItems("movie", "popular").subscribe(data => {
       this.movies = data['results'];
       console.log(this.movies);
     });
@@ -143,7 +143,7 @@ export class HomePage {
 
    // by series
   loadSeries(){
-    this.apiService.getTvshows("popular").subscribe(data => {
+    this.apiService.getItems("tv", "popular").subscribe(data => {
       this.series = data['results'];
       console.log(this.series);
     });

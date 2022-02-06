@@ -25,7 +25,7 @@ export class MoviesPage implements OnInit {
 
  
   loadMovies(event?){
-    this.apiService.getMoviePages(this.pageNum).subscribe(data => {
+    this.apiService.getItemPages("movie", this.pageNum).subscribe(data => {
       this.movies = this.movies.concat(data['results']);
       this.maxPages = data['total_pages'];
 

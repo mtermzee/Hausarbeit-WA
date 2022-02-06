@@ -23,7 +23,7 @@ export class SeriesPage implements OnInit {
   }
 
     loadSeries(event?){
-    this.apiService.getTvPages(this.pageNum).subscribe(data => {
+    this.apiService.getItemPages("tv", this.pageNum).subscribe(data => {
       this.series = this.series.concat(data['results']);
       this.maxPages = data['total_pages'];
 

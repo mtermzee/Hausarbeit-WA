@@ -29,7 +29,7 @@ export class MovieDetailPage implements OnInit {
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.apiService.getMovie(this.id).subscribe(result => {
+    this.apiService.getItemId("movie", this.id).subscribe(result => {
       this.information = result;
       console.log('details: ',this.information);
     });
@@ -38,7 +38,7 @@ export class MovieDetailPage implements OnInit {
   }
 
   getVideos() {
-     this.apiService.getMovieVideos(this.id).subscribe(result => {
+     this.apiService.getItemVideos("movie", this.id).subscribe(result => {
       this.videos = result;
        console.log('videos: ', this.videos);
        // https://angular.io/guide/security#xss

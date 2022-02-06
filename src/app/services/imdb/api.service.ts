@@ -25,44 +25,24 @@ export class ApiService {
   // get Lang
   lang = this.languageService.selected;
 
-   // get Movies by url
-  getMovies(url){
-    return this.http.get(`${BASE_URL}/discover/movie?${url}&api_key=${API_KEY}&language=${this.lang}`);
+   // get Items(Movie, Tv) by url
+  getItems(typ, url){
+    return this.http.get(`${BASE_URL}/discover/${typ}?${url}&api_key=${API_KEY}&language=${this.lang}`);
   }
 
-  // get movies by url
-  getTvshows(url){
-    return this.http.get(`${BASE_URL}/discover/tv?${url}&api_key=${API_KEY}&language=${this.lang}`);
+  // by internal(Movie, Tv ID
+  getItemId(typ, id){
+     return this.http.get(`${BASE_URL}/${typ}/${id}?api_key=${API_KEY}&language=${this.lang}`);
   }
 
-  // by internal ID
-  getMovie(id){
-     return this.http.get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=${this.lang}`);
+   // get Items(Movie, Tv) by Page
+  getItemPages(typ, pNumber){
+    return this.http.get(`${BASE_URL}/${typ}/popular?&api_key=${API_KEY}&language=${this.lang}&page=${pNumber}`);
   }
 
-  // by internal ID
-  getTvshow(id){
-     return this.http.get(`${BASE_URL}/tv/${id}?api_key=${API_KEY}&language=${this.lang}`);
-  }
-
-   // get Movies by Page
-  getMoviePages(pNumber){
-    return this.http.get(`${BASE_URL}/movie/popular?&api_key=${API_KEY}&language=${this.lang}&page=${pNumber}`);
-  }
-
-   // get Movies by Page
-  getTvPages(pNumber){
-    return this.http.get(`${BASE_URL}/tv/popular?&api_key=${API_KEY}&language=${this.lang}&page=${pNumber}`);
-  }
-
-  // get Movie Videos
-  getMovieVideos(id){
-    return this.http.get(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}&language=${this.lang}`);
-  }
-
-  // get Serie Videos
-  getTvVideos(id){
-    return this.http.get(`${BASE_URL}/tv/${id}/videos?api_key=${API_KEY}&language=${this.lang}`);
+  // get Items(Movie, Tv) Videos
+  getItemVideos(typ, id){
+    return this.http.get(`${BASE_URL}/${typ}/${id}/videos?api_key=${API_KEY}&language=${this.lang}`);
   }
 
   // Search by name

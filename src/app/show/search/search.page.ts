@@ -24,4 +24,17 @@ export class SearchPage implements OnInit {
     this.results = this.apiService.searchData(this.searchTerm, this.type);
   }
 
+   /*accountLink(item) {
+    [routerLink]="accountLink(item)"
+     // https://www.reddit.com/r/angular/comments/9n0uby/how_can_i_use_an_ngfor_and_an_ngif_so_that_the/
+     if (item.media_type === 'movie') {
+       //console.log("Movie");
+       return ['/', 'movie', item.id];
+     } else if (item.media_type === 'tv') {
+       //console.log("Serie");
+       return ['/', 'tv', item.id];
+     } else
+       return;
+  }*/
+
 }
