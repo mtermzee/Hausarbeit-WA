@@ -12,8 +12,8 @@
 
 <ion-content>
   <ion-card *ngIf="this.information; let serie">
-    <img src="{{'https://image.tmdb.org/t/p/w500'+serie.backdrop_path}}" *ngIf="serie.poster_path" />
-    <img src="assets/icon/404.jpg" *ngIf="!serie.poster_path">
+    <img src="{{'https://image.tmdb.org/t/p/w500'+serie.backdrop_path}}" *ngIf="serie.backdrop_path" />
+    <img src="assets/icon/404.jpg" *ngIf="!serie.backdrop_path">
 
     <div class="content-info">
       <div class="data-info">
@@ -69,6 +69,17 @@
               allowfullscreen></iframe>
           </div>
         </ion-card-content>
+      </div>
+
+      <div class="similar">
+        <h1>{{ 'DETAIL.sm' | translate }}</h1>
+        <ion-slides class="listSlides" [options]='slideOpts3'>
+          <ion-slide *ngFor="let serie of similars">
+            <div button [routerLink]="['/', 'tv', serie.id]">
+              <img src="{{'https://image.tmdb.org/t/p/w500'+serie.poster_path}}">
+            </div>
+          </ion-slide>
+        </ion-slides>
       </div>
 
       <div class="footer">

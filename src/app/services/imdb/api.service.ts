@@ -45,6 +45,11 @@ export class ApiService {
     return this.http.get(`${BASE_URL}/${typ}/${id}/videos?api_key=${API_KEY}&language=${this.lang}`);
   }
 
+  // get Items(Movie, Tv) Similars
+  getItemSimilars(typ, id) {
+    return this.http.get(`${BASE_URL}/${typ}/${id}/similar?api_key=${API_KEY}&language=${this.lang}`);
+  }
+
   // Search by name
   searchData(title: string, type: SearchType): Observable<any>{
     return this.http.get(`${BASE_URL}/search/${type}?api_key=${API_KEY}&query=${encodeURI(title)}&language=${this.lang}`).

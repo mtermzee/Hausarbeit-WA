@@ -16,12 +16,20 @@ export class SerieDetailPage implements OnInit {
   favorites: any;
   today: number = Date.now();
   id: any;
+
    // Videos 
   videos: any;
   key: string;
   ytUrl: string;
   videoUrl: any;
   done: boolean = false;
+
+  similars: any;
+  
+  public slideOpts3 = {
+    slidesPerView: 2.4,
+    spaceBetween:20,
+  }
   
   constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService, private dbService: FirebaseService, private sanitizer: DomSanitizer) { }
 
@@ -34,6 +42,7 @@ export class SerieDetailPage implements OnInit {
     });
 
     this.getVideos();
+    this.getSimilars();
   }
 
   getVideos() {
@@ -51,6 +60,13 @@ export class SerieDetailPage implements OnInit {
         } else
           console.log("no key");
       });
+  }
+
+  getSimilars() {
+    this.apiService.getItemSimilars("tv", this.id).subscribe(result => {
+      this.similars = result["results"];
+      console.log('Similars(): ',this.similars);
+    });
   }
   
   openWebsite(){

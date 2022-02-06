@@ -24,6 +24,13 @@ export class MovieDetailPage implements OnInit {
   videoUrl: any;
   done: boolean = false;
 
+  similars: any;
+
+  public slideOpts3 = {
+    slidesPerView: 2.4,
+    spaceBetween:20,
+  }
+  
   constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService, private dbService: FirebaseService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
@@ -35,6 +42,7 @@ export class MovieDetailPage implements OnInit {
     });
 
     this.getVideos();
+    this.getSimilars();
   }
 
   getVideos() {
@@ -50,6 +58,13 @@ export class MovieDetailPage implements OnInit {
          this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.ytUrl);
        } else
          console.log("no key");
+    });
+  }
+
+  getSimilars() {
+    this.apiService.getItemSimilars("movie", this.id).subscribe(result => {
+      this.similars = result["results"];
+      console.log('Similars(): ',this.similars);
     });
   }
 
