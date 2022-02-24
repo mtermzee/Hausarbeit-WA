@@ -24,6 +24,12 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 // PopOver imports
 import { LanguagePopoverPageModule } from './popovers/language-popover/language-popover.module';
 
+// Set up Imports for cardova contacts
+import { Contacts } from '@ionic-native/contacts/ngx'; // maybe delete
+import { CallNumber } from '@ionic-native/call-number/ngx';
+import { SMS } from '@ionic-native/sms/ngx';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -50,7 +56,7 @@ import { LanguagePopoverPageModule } from './popovers/language-popover/language-
     AngularFireDatabaseModule, // realtime
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Contacts, CallNumber, SMS],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

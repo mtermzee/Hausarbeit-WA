@@ -50,6 +50,10 @@ const routes: Routes = [
     path: 'favoriten',
     loadChildren: () => import('./show/favoriten/favoriten.module').then( m => m.FavoritenPageModule)
   },
+  {
+    path: 'contacts',
+    loadChildren: () => import('./contacts/contacts.module').then( m => m.ContactsPageModule)
+  },
 
   /*{
     path: '',
