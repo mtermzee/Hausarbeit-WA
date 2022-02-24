@@ -31,10 +31,11 @@ export class LoginPage implements OnInit {
         this.type = 'password';
         this.showPassword = false;
       }
-    }
+  }
   
     // login with user data
     login(form){
       return this.authService.login(form.value.email, form.value.password);
     }
+  
 }

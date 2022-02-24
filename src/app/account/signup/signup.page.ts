@@ -36,19 +36,20 @@ export class SignupPage implements OnInit {
         this.type = 'password';
         this.showPassword = false;
       }
-    }
+  }
 
-    // Create User auth
-    createUser(form){
+  // Create User auth
+  createUser(form){
       this.loading = true;
       this.authService.createUser(form.value);
-    }
+  }
 
-    // check if box is checked
-    toggleEditable(event){
+  // check if box is checked
+  toggleEditable(event){
       this.editable = false;
       if ( event.target.checked ) {
-              this.editable = true;
-          }
-    }
+            this.editable = true;
+        }
+  }
+  
 }
