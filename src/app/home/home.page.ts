@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/authentication/auth.service';
 import firebase from "firebase/compat/app";
 import { MenuController } from '@ionic/angular';
-import { ApiService } from '../services/imdb/api.service';
+import { ApiService } from '../services/tmdb/api.service';
 
 @Component({
   selector: 'app-home',
@@ -124,16 +124,15 @@ export class HomePage {
       });
   }
 
-  // by best movies
+  // by playing movies
   loadSortMovies(){
     this.apiService.getItems("movie", "now_playing").subscribe(data => {
       this.sortMovies = data['results'];
       console.log(this.sortMovies);
     });
-   // this.apiService.getMovies("sort_by=popularity.desc") now_playing;
   }
 
-   // by movies
+  // by popular movies
   loadMovies(){
     this.apiService.getItems("movie", "popular").subscribe(data => {
       this.movies = data['results'];
@@ -141,7 +140,7 @@ export class HomePage {
     });
   }
 
-   // by series
+  // by popular series
   loadSeries(){
     this.apiService.getItems("tv", "popular").subscribe(data => {
       this.series = data['results'];

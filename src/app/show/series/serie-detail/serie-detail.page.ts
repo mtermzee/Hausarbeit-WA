@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from 'src/app/services/datebase/firebase.service';
-import { ApiService } from 'src/app/services/imdb/api.service';
+import { ApiService } from 'src/app/services/tmdb/api.service';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 

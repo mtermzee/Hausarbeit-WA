@@ -59,11 +59,5 @@ export class FirebaseService {
       this.items_Firebase_Data.remove(id)
       .then(x=>console.log("Success removed"))
       .catch(error =>console.log("Error",error));
-    
-   /* db.ref('favorites/' + this.userId + '/' + id).remove()
-      .then(x => {
-        console.log("Success removed")
-      })
-      .catch(error =>console.log("Error",error));*/
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiService, SearchType } from 'src/app/services/imdb/api.service';
+import { ApiService, SearchType } from 'src/app/services/tmdb/api.service';
 
 
 @Component({

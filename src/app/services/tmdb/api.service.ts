@@ -25,17 +25,17 @@ export class ApiService {
   // get Lang
   lang = this.languageService.selected;
 
-   // get Items(Movie, Tv) by url
+  // get Items(Movie, Tv) by url
   getItems(typ, url){
     return this.http.get(`${BASE_URL}/discover/${typ}?${url}&api_key=${API_KEY}&language=${this.lang}`);
   }
 
-  // by internal(Movie, Tv ID
+  // get internal(Movie, Tv) by ID
   getItemId(typ, id){
      return this.http.get(`${BASE_URL}/${typ}/${id}?api_key=${API_KEY}&language=${this.lang}`);
   }
 
-   // get Items(Movie, Tv) by Page
+  // get Items(Movie, Tv) by Page
   getItemPages(typ, pNumber){
     return this.http.get(`${BASE_URL}/${typ}/popular?&api_key=${API_KEY}&language=${this.lang}&page=${pNumber}`);
   }

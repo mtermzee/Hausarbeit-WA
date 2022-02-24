@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/services/datebase/firebase.service';
-import { ApiService } from 'src/app/services/imdb/api.service';
+import { ApiService } from 'src/app/services/tmdb/api.service';
 
 @Component({
   selector: 'app-series',
