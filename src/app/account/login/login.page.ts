@@ -1,5 +1,6 @@
-import { Component, ContentChild, OnInit } from '@angular/core';
+import { Component, ContentChild, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/authentication/auth.service';
 
 @Component({
@@ -8,19 +9,25 @@ import { AuthService } from 'src/app/services/authentication/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 
-
-export class LoginPage implements OnInit {
+export class LoginPage implements OnInit, OnDestroy {
   type;
   showPassword = false
   authError: any;
+
+  private subscriptions = new Subscription();
 
   constructor(private router:Router, private authService: AuthService) { }
 
   ngOnInit() {
     this.type = 'password';
-    this.authService.eventAuthError$.subscribe(data =>{
+    const sub = this.authService.eventAuthError$.subscribe(data =>{
       this.authError = data;
     });
+    this.subscriptions.add(sub);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   toggleShow() {
