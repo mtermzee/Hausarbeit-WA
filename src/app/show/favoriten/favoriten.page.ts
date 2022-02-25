@@ -8,9 +8,7 @@ import { FirebaseService } from 'src/app/services/datebase/firebase.service';
   styleUrls: ['./favoriten.page.scss'],
 })
 export class FavoritenPage implements OnInit {
-   // favorites: [];
   favorites = this.dbService.items_Firebase_Data.valueChanges();
-  //today: number = Date.now();
   
   constructor(private dbService: FirebaseService, private router: Router) { }
 

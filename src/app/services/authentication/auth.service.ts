@@ -73,8 +73,13 @@ export class AuthService {
 
   // log out of session
   logout() {
-    this.router.navigate(['/login']);
-    return this.firebaseAuth.signOut();
+    // https://stackoverflow.com/questions/57003107/after-logout-with-one-user-then-loggin-with-another-user-old-user-information
+    return this.firebaseAuth.signOut().then(() => {
+      localStorage.clear();
+      sessionStorage.clear();
+      window.location.reload();
+      //this.router.navigate(['/login']);
+    });
   }
 
   // to reset Password by Email
