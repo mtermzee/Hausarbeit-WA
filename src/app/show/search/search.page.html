@@ -29,8 +29,8 @@
   </ion-item>
 
   <ion-list>
-    <ion-item button *ngFor="let item of (results | async)"
-      [routerLink]="item.media_type === 'movie' ? ['/', 'movie', item.id] : ['/', 'tv', item.id]">
+    <ion-item button *ngFor="let item of (results | async)" [routerLink]="item.media_type === 'movie' ? ['/', 'movie', item.id] || item.title : ['/', 'tv', item.id] ||
+      item.name">
 
       <ion-avatar slot="start">
         <img [src]="IMG_URL + item.poster_path" *ngIf="item.poster_path">
