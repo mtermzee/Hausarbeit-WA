@@ -59,6 +59,3 @@ export class MoviesPage implements OnInit, OnDestroy {
   }
 
 }
-
-
-//https://www.youtube.com/watch?v=yPBBWaQamWs
